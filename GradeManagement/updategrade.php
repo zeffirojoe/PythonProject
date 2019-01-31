@@ -11,6 +11,8 @@ if (!$conn) {
     echo "connection error";}
 mysql_select_db($dbuser,$conn);
 
+//change an already existing grade
+
 //$username = $_POST['user'];
 $username = 'student1';
 $username = hash('md5',$username);

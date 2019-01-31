@@ -15,6 +15,7 @@ $question = $_POST['question'];
 
 $query = "SELECT test_case1, test_case2, test_case3, test_case4, test_case5, test_case6 FROM questions WHERE question = '$question'";
 
+//return all test cases in parse_str format to allow iteration
 
 $results = mysql_query($query,$conn);
 while($result = mysql_fetch_object($results)){

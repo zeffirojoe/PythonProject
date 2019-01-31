@@ -11,10 +11,10 @@ if (!$conn) {
     echo "connection error";}
 mysql_select_db($dbuser,$conn);
 
+//checks if current student has taken the available exam
 //$username = $_POST['user'];
 $username = 'student1';
 $username = hash('md5',$username);
-//echo $username;
 $query = "SELECT grade_status FROM Users WHERE user = '$username'";
 
 

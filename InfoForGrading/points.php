@@ -15,7 +15,7 @@ $question = $_POST['question'];
 
 $query = "SELECT points FROM exam WHERE question = '$question'";
 
-
+//returns maximum amount of points for the current question
 $results = mysql_query($query,$conn);
 while($result = mysql_fetch_object($results)){
 $points = $result -> points;

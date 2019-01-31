@@ -15,6 +15,8 @@ mysql_select_db($dbuser,$conn);
 $username = 'student1';
 $username = hash('md5',$username);
 
+//notes whether or not the students exam has been completely graded by an admin
+
 $query = "UPDATE Users SET grade_status = 3 WHERE user = '$username'";
 
 

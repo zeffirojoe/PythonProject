@@ -14,18 +14,15 @@ mysql_select_db($dbuser,$conn);
 
 
 //ONLY WORKS FOR ONE QUESTION SO FAR, NEED TO CHANGE IMPLEMENTATION TO WORK FOR ALL QUESTIONS IN EXAM
+//recieves and inserts all test case and maxpoint info 
 
 $question = $_POST['question'];
 $points = $_POST['points'];
-//$tests = $_POST['test_case'];
-//$expected_nums = $_POST['expected_result'];
 
 $query = "SELECT * FROM questions WHERE question = '$question'";
 $results = mysql_query($query,$conn);
 
-
 $row = mysql_fetch_assoc($results);
-
 $expected_result1 = $expected_result2 = $expected_result3 = $expected_result4 = $expected_result5 = $expected_result6 = NULL;
 $expected_result1 = $row['expected_result1'];
 $expected_result2 = $row['expected_result2'];

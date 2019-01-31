@@ -12,17 +12,18 @@ if (!$conn) {
 mysql_select_db($dbuser,$conn);
 
 $constraint = $difficulty = $keyword = $topic = NULL;
-//$constraint = $_POST['constraint'];
 $difficulty = $_POST['difficulty'];
 $keyword = $_POST['keywords'];
 $topic = $_POST['topic'];
 
+//returns list of questions based on criteria recieved through initial POST
 $query = "SELECT * FROM questions WHERE difficulty LIKE '%$difficulty%' AND topic LIKE '%$topic%' AND question LIKE '%$keyword%'";
-//if($constraint === NULL || empty($constraint)) $query = str_replace("constraints = '$constraint' AND", "", $query);
 if($difficulty === NULL || empty($difficulty)) $query = str_replace("difficulty LIKE '%$difficulty%' AND", "", $query);
 if($topic === NULL || empty($topic)) $query = str_replace("AND topic LIKE '%$topic%'", "", $query);
 if($keyword === NULL || empty($keyword)) $query = str_replace("AND question LIKE '%$keyword%'", "", $query);
 if($difficulty === NULL && $topic === NULL && $keyword === NULL) $query = "SELECT * FROM questions";
+
+//returns list of question in proper JSON format
 
 $questions = '{ "questions": [ ';
 $results = mysql_query($query,$conn);

@@ -11,6 +11,7 @@ if (!$conn) {
     echo "connection error";}
 mysql_select_db($dbuser,$conn);
 
+//Notes the test as taken for the current student
 //$username = $_POST['user'];
 $username = 'student1';
 $username = hash('md5',$username);

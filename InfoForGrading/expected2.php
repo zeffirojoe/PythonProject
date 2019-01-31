@@ -15,7 +15,7 @@ $question = $_POST['question'];
 
 $query = "SELECT expected_result1, expected_result2, expected_result3, expected_result4, expected_result5, expected_result6 FROM questions WHERE question = '$question'";
 
-
+//return all expected results in parse_str format to allow iteration
 $results = mysql_query($query,$conn);
 while($result = mysql_fetch_object($results)){
 $expected1 = $result -> expected_result1;

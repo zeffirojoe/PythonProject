@@ -11,6 +11,9 @@ if (!$conn) {
     echo "connection error";}
 mysql_select_db($dbuser,$conn);
 
+//adds overall grade and test case info for a single student
+
+
 //$username = $_POST['user'];
 $username = 'student1';
 $username = hash('md5',$username);

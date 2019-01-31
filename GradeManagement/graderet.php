@@ -14,8 +14,7 @@ mysql_select_db($dbuser,$conn);
 $username = 'student1';
 $username = md5($username);
 
-
-//echo $username;
+//returns all grade info in proper JSON format
 $query = "SELECT * FROM `$username`";
 $results = mysql_query($query,$conn);
 
@@ -29,7 +28,7 @@ $query = "SELECT points FROM exam WHERE question = '".$row['question']."'";
 $result = mysql_query($query,$conn);
 if(!$result) echo "ROW 2 ERORR";
 while($row2 = mysql_fetch_assoc($result)) $questions = $questions.'"maxpoints":"'.$row2['points'].'", ';
-$answer = str_replace('"','\"',$row['answer']);
+$answer = str_replace('"','\"',$row['answer']); //escapes certain characters for cleaner display
 $answer = str_replace(' ', '&nbsp;',$answer);
 $questions = $questions.'"answer":"'.$answer.'", ';
 $questions = $questions.'"grade":"'.$row['grade'].'", ';
@@ -45,7 +44,7 @@ $query = "SELECT * FROM questions WHERE question = '".$row['question']."'";
 $result = mysql_query($query,$conn);
 if(!$result) echo "ROW 2 ERORR";
 while($row2 = mysql_fetch_assoc($result)) {
-
+    //more escaping of characters which would interrupt JSON object
     $testcase = str_replace('"','\"',$row2['test_case1']);
     $questions = $questions.'"testcase1":"'.$testcase.'", ';
     $questions = $questions.'"expected1":"'.$row2['expected_result1'].'", ';
@@ -73,9 +72,6 @@ $questions = $questions.'"result4":"'.$row['result4'].'", ';
 $questions = $questions.'"result5":"'.$row['result5'].'", ';
 $questions = $questions.'"result6":"'.$row['result6'].'" ';
 
-
-
-//$questions = $questions.'"constraint":"'.$row['constraints'].'" ';
 $questions = $questions.' },';
 
 

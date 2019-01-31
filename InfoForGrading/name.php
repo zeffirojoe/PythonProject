@@ -15,7 +15,7 @@ $question = $_POST['question'];
 
 $query = "SELECT * FROM questions WHERE question = '$question'";
 
-
+//returns all specific info for the current question
 $results = mysql_query($query,$conn);
 while($result = mysql_fetch_object($results)){
 $name = $result -> function_name;

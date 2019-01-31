@@ -16,7 +16,7 @@ $username = 'student1';
 $username = hash('md5',$username);
 
 $query = "UPDATE Users SET grade_status = 0 WHERE user = '$username'";
-
+//resets students ability to take exam, only necessary after full reset of grades.
 
 $results = mysql_query($query,$conn);
 

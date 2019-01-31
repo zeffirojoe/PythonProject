@@ -12,21 +12,13 @@ if (!$conn) {
 mysql_select_db($dbuser,$conn);
 
 
-
 $query = "SELECT * FROM exam";
-
+//returns all exam info in proper JSON format
 $questions = '{ "questions": [ ';
-//$difficulties = "";
-//$keywords = "";
-//$test_case = "";
-//$expected_result = "";
 
 $results = mysql_query($query,$conn);
 while($row = mysql_fetch_assoc($results)){
 $questions = $questions.'{"question":"'.$row['question'].'", ';
-//$questions = $questions.'"difficulty":"'.$row['difficulty'].'", ';
-//$questions = $questions.'"keywords":"'.$row['keywords'].'", ';
-//$questions = $questions.'"test_case":"'.$row['test_case'].'", ';
 $questions = $questions.'"points":"'.$row['points'].'"';
 $questions = $questions.' },';
 

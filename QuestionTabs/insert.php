@@ -10,7 +10,7 @@ if (!$conn) {
     die(mysqli_connect_error());
     echo "connection error";}
 mysql_select_db($dbuser,$conn);
-
+//recieves all question info for DB insertion
 $question = $_POST['question'];
 $difficulty = $_POST['difficulty'];
 $topic = $_POST['topic'];
@@ -34,6 +34,8 @@ $test_case6 = $_POST['testCase6'];
 
 $arr = array($test_case1,$test_case2,$test_case3,$test_case4,$test_case5,$test_case6);
 $arr2 = array($expected_result1,$expected_result2,$expected_result3,$expected_result4,$expected_result5,$expected_result6);
+
+//iteration through all possible test cases and expected results
 
 $values = "";
 $count = 0;

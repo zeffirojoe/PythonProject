@@ -11,7 +11,7 @@ if (!$conn) {
     echo "connection error";}
 mysql_select_db($dbuser,$conn);
 
-
+//returns list of all questions in proper JSON format
 
 $query = "SELECT * FROM questions";
 

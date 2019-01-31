@@ -14,6 +14,7 @@ mysql_select_db($dbuser,$conn);
 $username = $_POST['username'];
 $pwd = $_POST['password'];
 
+//Basic functionalty for login
 
 $username = hash('md5',$username);
 $pwd = hash('md5',$pwd);
